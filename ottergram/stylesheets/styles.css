@@ -19,7 +19,7 @@ a{
 }
 
 .logo-text {
-    background white;
+    background: white;
 
     text-align: center;
     text-transform: uppercase;
@@ -40,6 +40,9 @@ a{
 .thumbnail-list {
     list-style: none;
     padding: 0;
+
+    white-space: nowrap;
+    overflow: auto;
 }
 
 .thumbnail-image {
@@ -48,7 +51,8 @@ a{
 }
 
 .thumbnail-title {
-    display: block;
+    display: inline-block;
+    width: 120px;
     margin: 0;
     padding: 4px 10px;
     
@@ -56,4 +60,8 @@ a{
     color: rgb(201, 238, 255);
 
     font-size: 18px;
+}
+
+.detail-image{
+    width: 90%;
 }
