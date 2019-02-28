@@ -58,7 +58,7 @@
     order: 2;
     display: flex;
     justify-content: space-between;
-    padding: 0;
+    padding: 20px, 0;
     white-space: nowrap;
     overflow-x: auto;
   }
@@ -69,9 +69,14 @@
     max-width: 120px;
     border: 1px solid rgb(100%, 100%, 100%);
     border: 1px solid rgba(100%, 100%, 100%, 0.8);
-    transform: scale(1.2);
+    transition: transform 133ms ease-in-out;
   }
   
+  .thumbnail-item:hover {
+      transform: scale(1.2);
+      transition: transform 1000ms ease-in;
+  }
+
   .thumbnail-image {
     display: block;
     width: 100%;
@@ -135,7 +140,8 @@
     .thumbnail-list {
       flex-direction: column;
       order: 0;
-      margin-left: 2em;
+      margin-left: 20px;
+      padding: 0 35px;
     }
   
     .thumbnail-item {
@@ -143,6 +149,6 @@
     }
   
     .thumbnail-item + .thumbnail-item {
-      margin-top: 2em;
+      margin-top: 20px;
     }
   }  
