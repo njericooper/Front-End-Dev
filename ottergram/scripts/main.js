@@ -31,6 +31,7 @@ function addThumbClickHandler(thumb) {
     thumb.addEventListener('click', function (event) {
         event.preventDefault();
         setDetailsFromThumb(thumb);
+        showDetails();
     });
 }
 
@@ -40,10 +41,32 @@ function getThumbnailsArray() {
     var thumbnailArray;
 }
 
+function hideDetails() {
+    'use strict';
+    document.body.classList.add(HIDDEN_DETAIL_CLASS);
+}
+
+function showDetails() {
+    'use strict';
+    document.body.classList.remove(HIDDEN_DETAIL_CLASS);
+}
+
+function addKeyPressHandler() {
+    'use strict';
+    document.body.addEventListener('keyup', function (event) {
+        event.preventDefault();
+        console.log(event.keyCode);
+        if (event.keyCode === ESC_KEY) {
+            hideDetails();
+        }
+    });
+}
+
 function initializeEvents() {
     'use strict';
     var thumbnails = getThumbnailsArray();
     thumbnails.forEach(addThumbClickHandler);
+    addKeyPressHandler();
 }
 
 initializeEvents();
