@@ -12,7 +12,14 @@
             throw new Error('Coult not find element with selector: ' + selector);
         }
     }
-    function Row(coffeeOrder){
+
+    CheckList.prototype.addRow = function (coffeeOrder) {
+        // create a new instance of a row, using the coffee order info
+        var rowElement = new Row(coffeeOrder);
+        \//add the new ror instance's $element property to the checklist
+        this.$element.append(rowElement.$element);
+    };
+    function Row(coffeeOrder) {
         var $div = $('<div></div>', {
             'data-coffee-order': 'checkbox', 
             'class': 'checkbox'
