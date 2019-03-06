@@ -13,12 +13,29 @@
         }
     }
 
+    CheckList.prototype.addClickHandler = function (fn) {
+        this.$element.on('click', 'input', function (event){
+            this.removeRow(email);
+            fn(email);
+        }.bind(this));
+    };
+
     CheckList.prototype.addRow = function (coffeeOrder) {
+        //remve any existing rows that match the email address
+        this.removeRow(coffeeOrder.emailAddress);
         // create a new instance of a row, using the coffee order info
         var rowElement = new Row(coffeeOrder);
-        \//add the new ror instance's $element property to the checklist
+        //add the new ror instance's $element property to the checklist
         this.$element.append(rowElement.$element);
     };
+
+    CheckList.prototype.removeRow = function (email) {
+        this.$element
+        .find('[value="' + email + '"]')
+        .closest('data-coffee-order="checkbox"]')
+        .remove();
+    };
+
     function Row(coffeeOrder) {
         var $div = $('<div></div>', {
             'data-coffee-order': 'checkbox', 
