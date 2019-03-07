@@ -14,9 +14,12 @@
     }
 
     CheckList.prototype.addClickHandler = function (fn) {
-        this.$element.on('click', 'input', function (event){
-            this.removeRow(email);
-            fn(email);
+        this.$element.on('click', 'input', function (event) {
+            
+            fn(email)
+                .then(function (){
+                    this.removeRow(email);
+                }.bind(this));
         }.bind(this));
     };
 
